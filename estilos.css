@@ -8,7 +8,7 @@
    3. El resto son estilos de maquetación, ordenados por sección.
    ========================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:wght@400;500&family=Playfair+Display:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:wght@400;500&display=swap');
 
 /* ---------- 1. VARIABLES GENERALES (burdeos y crema) ---------- */
 :root {
@@ -122,7 +122,7 @@ img { display: block; max-width: 100%; height: auto; }
   font-size: clamp(1.1rem, 2.6vw, 2rem); line-height: 1.25;
 }
 .hero-roles span { display: block; }
-.hero-lema { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; font-size: clamp(1.1rem, 2.8vw, 2.2rem); white-space: nowrap; }
+.hero-lema { font-family: var(--display); font-weight: 400; font-size: clamp(1.1rem, 2.8vw, 2.2rem); white-space: nowrap; }
 .hero-pie { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 2rem; }
 .hero .estrella { position: absolute; color: var(--acento); }
 .hero .e1 { font-size: clamp(2rem, 4vw, 3.2rem); top: 22%; left: 38%; }
@@ -134,7 +134,7 @@ img { display: block; max-width: 100%; height: auto; }
   display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 2.5rem;
   padding: 1.25rem var(--margen);
   border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea);
-  font-family: 'Playfair Display', Georgia, serif; font-weight: 600;
+  font-family: var(--display); font-weight: 400;
   font-size: clamp(1.1rem, 2vw, 1.5rem);
   text-transform: uppercase; letter-spacing: .12em; color: var(--acento);
 }
