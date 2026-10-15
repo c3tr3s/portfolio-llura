@@ -1,0 +1,272 @@
+/* ==========================================================
+   PORTFOLIO · LLURA POMAR · estilos.css
+   ----------------------------------------------------------
+   CÓMO EDITAR ESTE ARCHIVO (para ti o para ChatGPT):
+   1. Colores y tipografías generales: bloque "1. VARIABLES".
+   2. Colores de cada proyecto: bloque "2. COLORES POR PROYECTO".
+      Cada proyecto tiene 4 variables: fondo, texto, acento, línea.
+   3. El resto son estilos de maquetación, ordenados por sección.
+   ========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:wght@400;500&family=Playfair+Display:wght@600&display=swap');
+
+/* ---------- 1. VARIABLES GENERALES (burdeos y crema) ---------- */
+:root {
+  --fondo: #F5EFDD;        /* crema */
+  --fondo-alt: #EBE2CB;    /* crema más oscuro */
+  --texto: #3A0A10;        /* burdeos casi negro */
+  --acento: #5B0F18;       /* burdeos */
+  --linea: #CDBFA3;
+
+  --display: 'Italiana', Georgia, serif;
+  --sans: 'Montserrat', system-ui, sans-serif;
+
+  --margen: clamp(20px, 5vw, 72px);
+}
+
+/* ---------- 2. COLORES POR PROYECTO ---------- */
+/* Para cambiar el color de un proyecto, cambia estas variables. */
+
+.redbull {
+  --bg: linear-gradient(135deg, #4B2A8F 0%, #A9438C 55%, #E8743B 100%);
+  --fg: #FFFFFF;
+  --acc: #FFD3B0;
+  --lin: rgba(255, 255, 255, .35);
+}
+.piduma {
+  --bg: #F6F0E3;
+  --fg: #3B2A21;
+  --acc: #3F4F32;
+  --lin: #CFC4AE;
+}
+.dolca {
+  --bg: #3A2A24;
+  --fg: #F2E6D3;
+  --acc: #D9C3A5;
+  --lin: rgba(242, 230, 211, .3);
+}
+.oysho {
+  --bg: #8B6B5C;
+  --fg: #F8F1EA;
+  --acc: #F1DFD0;
+  --lin: rgba(248, 241, 234, .35);
+}
+
+/* ---------- 3. BASE ---------- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: var(--sans);
+  font-size: .95rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: var(--display); font-weight: 400; margin: 0; }
+p { margin: 0; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; }
+:focus-visible { outline: 2px solid var(--acento); outline-offset: 3px; }
+::selection { background: var(--acento); color: var(--fondo); }
+
+/* Estrella de cuatro puntas (decoración). Uso: <span class="estrella"></span> */
+.estrella {
+  display: inline-block; width: 1em; height: 1em; background: currentColor;
+  clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%);
+}
+
+/* ---------- 4. NAVEGACIÓN ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: .5rem 2rem;
+  padding: 1rem var(--margen);
+  background: rgba(245, 239, 221, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--linea);
+}
+.nav-logo {
+  font-family: var(--display); font-size: 1.6rem; letter-spacing: .02em; color: var(--acento);
+  display: flex; flex-direction: column; line-height: 1.1;
+}
+.nav-subtitulo { font-size: .72rem; letter-spacing: .06em; }
+.nav-links { display: flex; gap: .5rem 2rem; font-size: .8rem; letter-spacing: .12em; text-transform: lowercase; }
+.nav-links a { border-bottom: 1px solid transparent; transition: border-color .25s; }
+.nav-links a:hover { border-color: var(--acento); }
+
+/* ---------- 5. HERO (solo tipografía) ---------- */
+.hero {
+  position: relative;
+  min-height: calc(100vh - 64px);
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: clamp(1.5rem, 4vw, 3rem) var(--margen) clamp(2rem, 5vw, 4rem);
+  color: var(--acento);
+  overflow: hidden;
+}
+.hero-cabecera {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: .85rem; letter-spacing: .12em;
+}
+.hero h1 {
+  font-size: clamp(4.2rem, 19vw, 17rem);
+  line-height: .9;
+  letter-spacing: -.01em;
+  text-transform: lowercase;
+}
+.hero-roles {
+  align-self: flex-end; text-align: right;
+  font-family: var(--sans); font-weight: 500;
+  font-size: clamp(1.1rem, 2.6vw, 2rem); line-height: 1.25;
+}
+.hero-roles span { display: block; }
+.hero-lema { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; font-size: clamp(1.1rem, 2.8vw, 2.2rem); white-space: nowrap; }
+.hero-pie { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 2rem; }
+.hero .estrella { position: absolute; color: var(--acento); }
+.hero .e1 { font-size: clamp(2rem, 4vw, 3.2rem); top: 22%; left: 38%; }
+.hero .e2 { font-size: clamp(1.2rem, 2vw, 1.8rem); bottom: 18%; left: 52%; }
+.hero .e3 { font-size: clamp(2.4rem, 5vw, 4rem); top: 14%; right: 6%; color: #A89F8E; }
+
+/* ---------- 6. FRANJA DE PALABRAS ---------- */
+.palabras {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 2.5rem;
+  padding: 1.25rem var(--margen);
+  border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea);
+  font-family: 'Playfair Display', Georgia, serif; font-weight: 600;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  text-transform: uppercase; letter-spacing: .12em; color: var(--acento);
+}
+
+/* ---------- 7. BLOQUES DE PROYECTO (pantalla completa) ---------- */
+.proyecto {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding: clamp(3rem, 8vw, 6rem) var(--margen);
+  background: var(--bg);
+  color: var(--fg);
+}
+.proyecto-intro {
+  display: grid; grid-template-columns: 1fr 1.3fr;
+  gap: clamp(1.5rem, 5vw, 5rem); align-items: center;
+}
+.proyecto.inverso .proyecto-intro { grid-template-columns: 1.3fr 1fr; }
+.proyecto.inverso .portada { order: -1; }
+
+.etiqueta { font-size: .78rem; letter-spacing: .1em; color: var(--acc); margin-bottom: 1rem; }
+.proyecto h2 {
+  font-size: clamp(2.8rem, 7vw, 6rem);
+  line-height: .95; letter-spacing: 0; margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+.resumen { max-width: 52ch; }
+.creditos {
+  margin-top: 1.5rem; padding-top: .9rem;
+  border-top: 1px solid var(--lin);
+  font-size: .8rem; color: var(--acc); max-width: 40ch;
+}
+
+.portada { margin: 0; overflow: hidden; background: rgba(0, 0, 0, .08); cursor: zoom-in; }
+.portada img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; transition: transform .55s cubic-bezier(.25,.46,.45,.94), filter .55s ease; }
+.portada:hover img { transform: scale(1.04); filter: brightness(1.06); }
+
+/* Galería de 4 imágenes */
+.galeria {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(.6rem, 1.5vw, 1.2rem);
+}
+.galeria figure { margin: 0; overflow: hidden; background: rgba(0, 0, 0, .08); cursor: zoom-in; position: relative; }
+.galeria img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; transition: transform .55s cubic-bezier(.25,.46,.45,.94), filter .55s ease; }
+/* Dolça Flor mezcla logos y fotos: formato más cuadrado */
+.dolca .galeria img { aspect-ratio: 4 / 3; }
+.galeria figure:hover img { transform: scale(1.07); filter: brightness(1.08); }
+.galeria figure::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(255,255,255,0); transition: background .4s ease; pointer-events: none;
+}
+.galeria figure:hover::after { background: rgba(255,255,255,.05); }
+/* Para logos o imágenes que no deben recortarse: class="contener" en el <figure> */
+.contener img { object-fit: contain; background: #FDF9EE; }
+.contener { background: #FDF9EE !important; }
+
+/* ---------- 8. SOBRE MÍ (panel burdeos) ---------- */
+.sobre {
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(1.5rem, 5vw, 5rem);
+  padding: clamp(4rem, 9vw, 8rem) var(--margen);
+  background: var(--acento); color: var(--fondo);
+}
+.sobre h2 { font-size: clamp(2.6rem, 7vw, 6rem); line-height: .95; text-transform: uppercase; }
+.sobre-texto p + p { margin-top: 1rem; }
+.sobre-texto { max-width: 58ch; }
+.habilidades {
+  display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin-top: 1.75rem; padding-top: 1rem;
+  border-top: 1px solid rgba(245, 239, 221, .4);
+  font-family: var(--display); font-size: 1.3rem; letter-spacing: .06em; text-transform: uppercase;
+}
+
+/* ---------- 9. CONTACTO ---------- */
+.contacto {
+  background: var(--fondo-alt); color: var(--acento);
+  padding: clamp(3.5rem, 8vw, 7rem) var(--margen);
+  display: flex; justify-content: space-between; align-items: flex-end;
+  flex-wrap: wrap; gap: 2rem;
+}
+.contacto h2 { font-size: clamp(2.6rem, 7vw, 6rem); line-height: .95; max-width: 11ch; text-transform: uppercase; }
+.contacto-datos { min-width: 17rem; font-size: .9rem; }
+.contacto-datos p { margin-bottom: .75rem; }
+.contacto-datos a {
+  display: block; padding: .45rem 0; border-bottom: 1px solid var(--linea);
+  transition: padding-left .25s;
+}
+.contacto-datos a:hover { padding-left: .5rem; }
+
+/* ---------- 10. PIE ---------- */
+.pie { padding: 1.25rem var(--margen); font-size: .75rem; letter-spacing: .1em; color: var(--acento); background: var(--fondo); }
+
+/* ---------- 11. MÓVIL ---------- */
+@media (max-width: 900px) {
+  .proyecto-intro, .proyecto.inverso .proyecto-intro, .sobre { grid-template-columns: 1fr; }
+  .proyecto.inverso .portada { order: 0; }
+  .galeria { grid-template-columns: repeat(2, 1fr); }
+  .hero .e1 { left: 60%; top: 16%; }
+}
+@media (max-width: 480px) {
+  .nav { flex-direction: column; align-items: flex-start; }
+  .hero-roles { align-self: flex-start; text-align: left; }
+}
+
+/* ---------- 12. ACCESIBILIDAD ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
+}
+
+/* ---------- 13. LIGHTBOX ---------- */
+.lightbox {
+  display: none;
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(20, 10, 8, 0.93);
+  align-items: center; justify-content: center;
+  cursor: zoom-out;
+}
+.lightbox.activo { display: flex; animation: lb-aparece .22s ease; }
+.lightbox img {
+  max-width: 92vw; max-height: 90vh;
+  object-fit: contain;
+  box-shadow: 0 12px 60px rgba(0, 0, 0, .6);
+  cursor: default;
+  border-radius: 2px;
+}
+.lightbox-cerrar {
+  position: absolute; top: 1.2rem; right: 1.6rem;
+  background: none; border: none; color: #fff;
+  font-size: 2.2rem; line-height: 1; padding: .2rem .4rem;
+  cursor: pointer; opacity: .55; font-family: var(--sans); font-weight: 300;
+  transition: opacity .2s;
+}
+.lightbox-cerrar:hover { opacity: 1; }
+@keyframes lb-aparece {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
